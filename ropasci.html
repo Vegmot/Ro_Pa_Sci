@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <body>
+            <script>
+                function computerPlay() {
+                    let choice = undefined
+                    let number = Math.floor(Math.random() * 3) + 1
+
+                    if (number == 1) {
+                        choice = "Rock"
+                    } else if (number == 2) {
+                        choice = "Paper"
+                    } else {
+                        choice = "Scissors"
+                    }
+
+                    return choice.toUpperCase()
+                }
+
+                function playerPlay(input) {
+                    
+                    let output = undefined
+
+                    if (input == 1) {
+                        output = "Rock"
+                    } else if (input == 2) {
+                        output = "Paper"
+                    } else if (input == 3) {
+                        output = "Scissors"
+                    }
+
+                    return output.toUpperCase()
+                }
+
+                function play_game(playerSelection, computerSelection) {
+
+                    let result = undefined
+
+                    if (playerSelection == "ROCK" && computerSelection == "PAPER") {
+                        result = "You Lose! Paper beats Rock"
+                    }
+                    else if (playerSelection == "ROCK" && computerSelection == "SCISSORS") {
+                        result = "You Win! Rock beats Scissors"
+                    }
+
+                    else if (playerSelection == "PAPER" && computerSelection == "ROCK") {
+                        result = "You Win! Paper beats Rock"
+                    }
+                    else if (playerSelection == "PAPER" && computerSelection == "SCISSORS") {
+                        result = "You Lose! Scissors beats Paper"
+                    }
+                    else if (playerSelection == "SCISSORS" && computerSelection == "ROCK") {
+                        result = "You Lose! Rock beats Scissors"
+                    }
+                    else if (playerSelection == "SCISSORS" && computerSelection == "PAPER") {
+                        result = "You Win! Scissors beats Paper"
+                    } else {
+                        result = "Draw Game!"
+                    }
+
+                    return result
+                }
+                
+                let i = 0
+                while (i < 5) {
+                    playerScore = 0
+                    computerScore = 0
+
+                    playerChoice = prompt("Your choice? (1: Rock, 2: Paper, 3: Scissors")
+                    play_game(playerPlay(playerChoice), computerPlay())
+
+                    if (playerPlay(playerChoice) == "ROCK" && computerPlay() == "PAPER") {
+                        computerScore += 1
+                    } else if (playerPlay(playerChoice) == "ROCK" && computerPlay() == "SCISSORS") {
+                        playerScore += 1
+                    } else if (playerPlay(playerChoice) == "PAPER" && computerPlay() == "ROCK") {
+                        playerScore += 1
+                    } else if (playerPlay(playerChoice) == "PAPER" && computerPlay() == "SCISSORS") {
+                        computerScore += 1
+                    } else if (playerPlay(playerChoice) == "SCISSORS" && computerPlay() == "ROCK") {
+                        computerScore += 1
+                    } else if (playerPlay(playerChoice) == "SCISSORS" && computerPlay() == "PAPER") {
+                        playerScore += 1
+                    }
+                    
+                    i += 1
+
+                }
+
+                let finalResult = undefined
+                if (playerScore > computerScore) {
+                    console.log("Player wins!")
+                } else if (playerScore < computerScore) {
+                    console.log("Computer Wins!")
+                } else {
+                    console.log("Draw Game!")
+                }
+
+
+            </script>
+        </body>
+    </head>
+</html>
